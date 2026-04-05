@@ -1,20 +1,19 @@
 """
-Claude AI service for resume optimization (Resume Builder only).
-Modifies base LaTeX resume to match job description using Claude API.
-Note: Gemini is used for the LeetCode Notes feature separately.
+Gemini AI service for resume optimization (Resume Builder).
+Modifies base LaTeX resume to match job description using Gemini API.
 """
 import os
 import logging
-import anthropic
+from google import genai
 
 logger = logging.getLogger(__name__)
 
-# Initialize Claude client
-_api_key = os.getenv("CLAUDE_API_KEY")
+# Initialize Gemini client
+_api_key = os.getenv("GEMINI_API_KEY")
 if not _api_key:
-    logger.error("CLAUDE_API_KEY is not set")
+    logger.warning("GEMINI_API_KEY is not set — AI generation will fail.")
 
-client = anthropic.Anthropic(api_key=_api_key)
+client = genai.Client()
 
 _SYSTEM_INSTRUCTION = """\
 You are an expert ATS resume optimizer.
@@ -86,35 +85,35 @@ Return the modified LaTeX resume now.\
 """
 
     try:
-        message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=8192,
-            temperature=0.2,
-            system=_SYSTEM_INSTRUCTION,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
+        message = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt,
+            system_instruction=_SYSTEM_INSTRUCTION,
+            config=genai.types.GenerateContentConfig(
+                max_output_tokens=8192,
+                temperature=0.2,
+            ),
         )
 
-        modified_latex = message.content[0].text.strip()
+        modified_latex = message.text.strip()
 
         # Validate that output starts with \ or %
         if not modified_latex or (modified_latex[0] not in ("\\", "%")):
             raise ValueError(
-                "Claude returned invalid LaTeX (does not start with \\ or %)"
+                "Gemini returned invalid LaTeX (does not start with \\ or %)"
             )
 
         return modified_latex
 
     except Exception as e:
-        logger.error(f"Claude API error: {e}")
-        raise RuntimeError(f"Claude API failed: {e}")
+        logger.error(f"Gemini API error: {e}")
+        raise RuntimeError(f"Gemini API failed: {e}")
 
 
 def retry_modify_resume_for_jd(base_latex: str, job_description: str, error_msg: str) -> str:
     """
     Retry resume modification after a compilation error.
-    Sends the error message back to Claude for correction.
+    Sends the error message back to Gemini for correction.
     
     Args:
         base_latex: The base LaTeX resume template
@@ -141,26 +140,26 @@ Fix it and return only valid LaTeX.\
 """
 
     try:
-        message = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
-            max_tokens=8192,
-            temperature=0.2,
-            system=_SYSTEM_INSTRUCTION,
-            messages=[
-                {"role": "user", "content": prompt}
-            ]
+        message = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt,
+            system_instruction=_SYSTEM_INSTRUCTION,
+            config=genai.types.GenerateContentConfig(
+                max_output_tokens=8192,
+                temperature=0.2,
+            ),
         )
 
-        modified_latex = message.content[0].text.strip()
+        modified_latex = message.text.strip()
 
         # Validate that output starts with \ or %
         if not modified_latex or (modified_latex[0] not in ("\\", "%")):
             raise ValueError(
-                "Claude returned invalid LaTeX (does not start with \\ or %)"
+                "Gemini returned invalid LaTeX (does not start with \\ or %)"
             )
 
         return modified_latex
 
     except Exception as e:
-        logger.error(f"Claude retry error: {e}")
-        raise RuntimeError(f"Claude retry failed: {e}")
+        logger.error(f"Gemini retry error: {e}")
+        raise RuntimeError(f"Gemini retry failed: {e}")
