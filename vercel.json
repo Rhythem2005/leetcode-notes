@@ -3,14 +3,5 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "vite",
-  "env": {
-    "VITE_API_URL": {
-      "description": "Backend API URL"
-    },
-    "VITE_DEBUG": {
-      "description": "Debug mode",
-      "default": "false"
-    }
-  }
+  "framework": "vite"
 }
