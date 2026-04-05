@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Copy, Download, AlertCircle, Loader } from "lucide-react";
 import { toast } from "sonner";
+import { BASE_URL } from "../config/api.js";
 
 export default function ResumeBuilder() {
   const [jobDescription, setJobDescription] = useState("");
@@ -22,7 +23,7 @@ export default function ResumeBuilder() {
     setPdfUrl("");
 
     try {
-      const response = await fetch("http://localhost:5001/api/resume/generate", {
+      const response = await fetch(`${BASE_URL}/api/resume/generate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ jobDescription }),
@@ -75,7 +76,7 @@ export default function ResumeBuilder() {
       }
 
       setLatex(data.latex);
-      setPdfUrl(`http://localhost:5001${data.pdfUrl}`);
+      setPdfUrl(`${BASE_URL}${data.pdfUrl}`);
       setActiveTab("output");
       toast.success("Resume generated successfully!");
     } catch (err) {

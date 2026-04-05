@@ -141,7 +141,7 @@ Fix it and return only valid LaTeX.\
 
     try:
         message = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash",
             contents=prompt,
             system_instruction=_SYSTEM_INSTRUCTION,
             config=genai.types.GenerateContentConfig(
