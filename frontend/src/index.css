@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --bg-color: #0A0A0A;
+  --sidebar-bg: #111111;
+  --accent-color: #FBBF24; /* Amber-400 */
+  --accent-gradient: linear-gradient(135deg, #F59E0B, #D97706); /* Amber gradient */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(251, 191, 36, 0.1); /* Yellow border */
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+  color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glassmorphism utility with yellow tint */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.2);
+}
+
+/* AI Note card formatting */
+.prose {
+  max-width: none;
+}
+.prose h3 {
+  color: #FBBF24; /* Amber */
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.prose p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #cbd5e1;
+}
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+/* Custom animations */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+/* Shimmer animation for loading states with yellow tint */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    rgba(251, 191, 36, 0.02) 25%, 
+    rgba(251, 191, 36, 0.05) 50%, 
+    rgba(251, 191, 36, 0.02) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}

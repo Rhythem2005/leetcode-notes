@@ -1,0 +1,199 @@
+\documentclass[letterpaper,8.7pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\topmargin}{-0.75in}
+\addtolength{\textheight}{1.55in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\normalsize\bfseries
+}{}{0em}{}[\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\footnotesize{
+    \begin{tabular*}{0.97\textwidth}{l}
+      #1 \vspace{-2pt}
+    \end{tabular*}
+  }
+}
+
+\newcommand{\resumeProjectHeading}[3]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\footnotesize #2} \\
+      \textit{\footnotesize #3} & \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.1in]\setlength\itemsep{-1pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.1in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\footnotesize #2} \\
+      \textit{\footnotesize #3} & \textit{\footnotesize #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\skillCategory}[2]{
+  \textbf{#1:} \footnotesize{#2}
+}
+
+\newcommand{\contactItem}[2]{
+  \footnotesize{#1 #2}
+}
+
+\definecolor{LinkBlue}{RGB}{0,102,204}
+
+\begin{document}
+
+\setlength{\parskip}{0pt}
+\setlength{\itemsep}{-2pt}
+\setlength{\parsep}{0pt}
+\linespread{0.97}
+
+%----------HEADER----------
+\begin{center}
+  {\Huge \scshape Rhythem Sabharwal} \\ \vspace{1pt}
+  New Delhi – 110027 \\ \vspace{1pt}
+  \href{mailto:rhythemsabharwal@gmail.com}{rhythemsabharwal@gmail.com} ~|~ +91-9599655016 ~|~ 
+  \href{www.linkedin.com/in/rhythem-sabharwal-a9027529b}{linkedin.com/in/rhythemsabharwal} ~|~ 
+  \href{https://github.com/rhythemsabharwal}{github.com/rhythemsabharwal} ~|~ 
+  \href{https://portfolio-pqfa.vercel.app/}{portfolio-pqfa.vercel.app}
+\end{center}
+
+\vspace{-12pt}
+\section*{About}
+Full Stack Developer with a strong foundation in the MERN stack and a focused interest in integrating artificial intelligence into real-world applications. Experienced in architecting scalable systems, developing intelligent web platforms, and continuously strengthening technical expertise through project-driven learning.
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\resumeSubHeadingListStart
+\item{
+    \begin{tabular*}{0.97\textwidth}{l}
+        \skillCategory{Programming Languages}{C++, Python} \\[0pt]
+        \skillCategory{Frontend Technologies}{React.js, HTML, Tailwind CSS, JavaScript} \\[0pt]
+        \skillCategory{Backend Technologies}{Node.js, Express.js, Flask, RESTful APIs} \\[0pt]
+        \skillCategory{Databases}{MongoDB, SQL} \\[0pt]
+        \skillCategory{Tools \& Platforms}{Git, GitHub, Postman, Vercel, Render, VS Code} \\[0pt]
+    \end{tabular*}
+}
+\resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {FarmWise - AI-Powered Farmer Support Platform (Team Project)}{Aug 2025 -- Nov 2025}
+    {React.js, Flask, OpenCV, XGBoost, Weather API, JWT Authentication, Tailwind CSS}
+  \resumeItemListStart
+    \resumeItem{Developed an AI-driven crop diagnosis and recommendation system leveraging XGBoost and OpenCV for accurate image-based disease detection.}
+    \resumeItem{Integrated Weather API services to provide automated climate insights and implemented JWT-based authentication to ensure secure access for farmers and experts.}
+    \resumeItem{Implemented chatbot assistance and a fully responsive React and Tailwind CSS frontend to enhance user engagement and usability.}
+    \resumeItem{Defined a future roadmap encompassing IVR support, SIM-based location retrieval, and integration with government APIs.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {AI Image Generator - Full-Stack Platform \href{https://artbot-frontend.onrender.com/}{\textcolor{LinkBlue}{\faLink}}}{June 2025}
+    {MongoDB, Express.js, React.js, Node.js, ClipDrop API, Tailwind CSS, JWT}
+  \resumeItemListStart
+    \resumeItem{Developed a full-stack web application that converts text prompts into high-quality AI-generated images using the ClipDrop API.}
+    \resumeItem{Implemented secure authentication using JWT and bcrypt to manage user accounts and session handling.}
+    \resumeItem{Gained advanced experience in prompt engineering, API integration, and asynchronous image generation workflows.}
+    \resumeItem{Deployed the frontend on Vercel and the backend on Render to enable scalable and reliable hosting.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {Amrutum - Prompt Engineered AI Project \href{https://amrutam-xi.vercel.app/}{\textcolor{LinkBlue}{\faLink}}}{Apr 2024}
+    {Prompt Engineering, Tailwind CSS, React.js}
+  \resumeItemListStart
+    \resumeItem{Developed a prompt-engineered web application using Tailwind CSS for a hospital management system to analyze real-world AI use cases.}
+    \resumeItem{Designed as part of an internship selection process to demonstrate proficiency in prompt engineering, frontend development, and AI system design.}
+    \resumeItem{Explored context-aware prompt optimization and built an interactive React interface for effective AI response visualization.}
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {AI Code Reviewer}{April 2025}
+    {EJS, Node.js, Google Gemini API}
+  \resumeItemListStart
+    \resumeItem{Developed an automated AI-based code review tool utilizing the Google Gemini API to deliver intelligent and actionable feedback.}
+    \resumeItem{Implemented a responsive frontend featuring syntax highlighting and real-time code evaluation metrics.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{Minor in Artificial Intelligence} — \textit{IIT Ropar}}{Aug 2024  (Ongoing)}{\vspace{-8pt}}
+  \resumeItemListStart
+    \resumeItem{Key topics covered include Data Handling, Introduction to Prompt Programming, CNNs, Neural Links and Advanced LLMs, Computer Vision, and Natural Language Processing.}
+    \resumeItem{Specialization in \textbf{TinyML and General Applications in Artificial Intelligence}.}
+   
+  \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Mastering DSA in C++} — \textit{Coding Blocks}}{May 2025 – Dec 2025 }{\vspace{-8pt}}
+  \resumeItemListStart
+    \resumeItem{Completed a comprehensive  program focused on Data Structures, Algorithms, and advanced problem-solving techniques in C++.}
+    \resumeItem{Covered core concepts including recursion, sorting, searching, stacks, queues, trees, graphs, dynamic programming, tries, greedy algorithms, and backtracking.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+    {Bhagwan Parshuram Institute Of Technology}{New Delhi, India}
+    {Bachelor of Technology in Computer Science and Engineering (CGPA: 7.3)}{Aug 2023 -- Aug 2027}
+
+  \resumeSubheading
+    {Indian Institute Of Technology, Ropar}{Punjab, India}
+    {Minor in Artificial Intelligence }{Aug 2024 -- Ongoing}
+
+  \resumeSubheading
+    {G.D. Goenka Public School, Paschim Vihar}{New Delhi, India}
+    {Class 12\textsuperscript{th} — Percentage: 65\%}{2023}
+
+  \resumeSubheading
+    {G.D. Goenka Public School, Paschim Vihar}{New Delhi, India}
+    {Class 10\textsuperscript{th} — Percentage: 75\%}{2021}
+
+\resumeSubHeadingListEnd
+
+\end{document}
