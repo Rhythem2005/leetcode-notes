@@ -10,7 +10,7 @@ services:
       - key: FLASK_ENV
         value: production
       - key: PORT
-        value: 5000
+        value: 10000
       - key: GEMINI_API_KEY
         sync: false
       - key: CLAUDE_API_KEY
