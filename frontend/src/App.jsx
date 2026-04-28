@@ -135,11 +135,11 @@ export default function App() {
       setHistory((prev) => [savedItem, ...prev]);
       setActiveNoteId(res.id);
 
-      // Start streaming the real response
-      await streamNotes(res.notes, aiMsgId);
-      
-      // Update message with tags
-      setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, tags: res.tags || [] } : m));
+      // Change the AI message ID before streaming to the real DB ID
+      setMessages(prev => prev.map(m => m.id === aiMsgId ? { ...m, id: res.id, tags: res.tags || [] } : m));
+
+      // Start streaming the real response using the new ID
+      await streamNotes(res.notes, res.id);
       
       toast.success("Notes generated successfully!");
     } catch (err) {
