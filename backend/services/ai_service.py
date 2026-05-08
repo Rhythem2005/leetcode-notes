@@ -12,7 +12,7 @@ _api_key = os.getenv("GEMINI_API_KEY")
 if not _api_key:
     logger.warning("GEMINI_API_KEY is not set — AI generation will fail.")
 
-client = genai.Client()
+client = genai.Client(api_key=_api_key)
 
 _SYSTEM_INSTRUCTION = """\
 You are a DSA revision note generator for a CS student. Your goal is to produce notes that look like they were typed in a hurry by a student who just cracked a problem and wants to remember the "vibe" and "logic" for a placement interview in 2 days.
